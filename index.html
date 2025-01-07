@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to RubyReaper's LinkTree. Explore exclusive discounts, social links, featured items, and more!">
+    <meta name="keywords" content="LinkTree, RubyReaper, online shop, discounts, social media links, featured items">
+    <meta name="author" content="RubyReaper">
+    <meta property="og:title" content="RubyReaper LinkTree">
+    <meta property="og:description" content="Discover exclusive discounts, featured items, and connect with us on social media.">
+    <meta property="og:image" content="https://yourwebsite.com/path/to/image.jpg">
+    <meta property="og:url" content="https://rubyreaper.com">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <title>Link Tree</title>
+    <style>
+       /* Rotating Banner */
+        .banner {
+            width: 100%;
+            background-color: #ba304c;
+            color: #FFEFC5;
+            text-align: center;
+            padding: 20px 0;  /* Reduced padding to move text up */
+            font-size: 15px;
+            font-weight: bold;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .banner span {
+            display: inline-block;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 15s infinite;
+            white-space: nowrap;
+        }
+/* Keyframes for fade-in and fade-out for each slide */
+@keyframes fadeSlide {
+    0%, 20% { opacity: 1; }  /* Fade in during the first 4 seconds */
+    25%, 100% { opacity: 0; }  /* Fade out after 4 seconds */
+}
+
+/* Apply the fadeSlide animation to each slide with proper delays */
+.slide-container span:nth-child(1) {
+    animation: fadeSlide 20s infinite;  /* Total cycle duration: 20s */
+    animation-delay: 0s;  /* Slide 1 starts at 0s */
+}
+
+.slide-container span:nth-child(2) {
+    animation: fadeSlide 20s infinite;
+    animation-delay: 5s;  /* Slide 2 starts at 5s */
+}
+
+.slide-container span:nth-child(3) {
+    animation: fadeSlide 20s infinite;
+    animation-delay: 10s;  /* Slide 3 starts at 10s */
+}
+
+.slide-container span:nth-child(4) {
+    animation: fadeSlide 20s infinite;
+    animation-delay: 15s;  /* Slide 4 starts at 15s */
+}
+
+.slide-container span:nth-child(5) {
+    animation: fadeSlide 20s infinite;
+    animation-delay: 20s;  /* Slide 5 starts at 20s */
+}
+
+
+        /* Reset body margins and padding */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #231313, #412621);
+            color: #FFEFC5; /* Default font color */
+            min-height: 100vh; /* Ensure body takes up at least the full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align everything to the top */
+            align-items: center;
+        }
+
+        /* Link Tree Container */
+        .link-tree-container {
+            max-width: 600px; /* Increased max-width */
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            flex-grow: 1; /* Ensures the content takes up the remaining space */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align content at the top */
+            align-items: center; /* Centers the content horizontally */
+            margin-bottom: 20px; /* Add some margin at the bottom */
+            margin-top: 80px; /* Adjusted to avoid overlap with banner */
+        }
+
+        /* Profile Picture */
+        .link-tree-profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Makes the image round */
+            object-fit: contain; /* Ensures the entire image fits within the circle */
+            margin-top: 0px; /* Increased margin to push the image further down */
+            margin-bottom: 20px;
+            border: 5px solid #231313; /* Adjusted ring width and color */
+            box-shadow: 0 0 0 5px #412621; /* Adds space between the ring and the image */
+            max-width: 100%; /* Ensures the image does not exceed the container width */
+            max-height: 100%; /* Ensures the image does not exceed the container height */
+            user-select: none; /* Prevent selection and dragging */
+        }
+
+        /* Short Bio under the Profile Picture */
+        .bio {
+            font-size: 14px;
+            color: #FFEFC5; /* Bio text color */
+            margin-bottom: 3px; /* Set margin-bottom to 3px for spacing between bio and buttons */
+            font-style: italic;
+            user-select: none; /* Prevent selection and dragging */
+            width: 300px; /* Make bio the same width as the buttons */
+            margin: 0 auto; /* Center bio */
+            padding: 0 10px; /* Added padding for mobile */
+        }
+
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 0px; /* Ensure space between dropdown and other buttons */
+        }
+
+        /* Dropdown Button */
+        .dropdown-button {
+            display: block;
+            width: 300px;
+            padding: 13px 20px;
+            background-color: #BA304C;
+            color: #FFEFC5;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 5px auto; /* Centered button with 5px margin */
+            text-align: center;
+            border: 2px solid #412621;
+            box-shadow: 0px 4px 6px #231313;
+        }
+
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #BA304C;
+            border-radius: 10px;
+            padding: 10px 0;
+            width: 300px; /* Match the width of the buttons */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            text-align: left;
+        }
+
+        /* Show dropdown on click */
+        .dropdown.open .dropdown-content {
+            display: block;
+        }
+
+        /* Dropdown Links */
+        .dropdown-content a {
+            color: #FFEFC5; /* Text color */
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #9f2c3f; /* Slightly darker color on hover */
+        }
+
+        /* Icon Styles */
+        .icon {
+            width: 50px; /* Increased from 20px to 25px */
+            height: 50px; /* Increased from 20px to 25px */
+            margin-right: 10px;
+            object-fit: contain;
+        }
+
+        /* Link Tree Buttons */
+        .link-tree-button {
+            display: block;
+            margin: 6px 0; /* Reduced margin to bring buttons closer together */
+            padding: 15px 20px;
+            background-color: #BA304C;
+            color: #FFEFC5;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 300px;
+            box-sizing: border-box;
+            border: 0px solid #412621;
+            box-shadow: 0px 4px 6px #231313;
+            text-align: center;
+        }
+
+        /* Hover Effect for Buttons */
+        .link-tree-button:hover {
+            background-color: #9f2c3f;
+            transform: scale(1.05);
+        }
+
+        /* Footer Style */
+        .footer {
+            text-align: center;
+            font-size: 12px; /* Reduced font size */
+            color: #FFEFC5;
+            position: relative;
+            bottom: 0; /* Position footer at the very bottom */
+            width: 100%;
+            margin-top: 0; /* Removed top margin */
+            padding-bottom: 3px; /* Small padding at the bottom */
+        }
+
+        /* Footer Dividing Line */
+        .footer hr {
+            border: 0;
+            height: 1px;
+            background-color: #231313; /* Dark dividing line */
+            margin: 0; /* Removed margin around the line */
+            width: 100%; /* Makes the line span the full width */
+        }
+
+        .footer a {
+            color: #FFEFC5;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #BA304C; /* Hover effect for the footer link */
+        }
+
+        /* Container for Buttons */
+        .button-container {
+            transition: margin-top 0.3s ease; /* Smooth transition for margin */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the buttons horizontally */
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .link-tree-container {
+                padding: 20px; /* Added padding around the container */
+            }
+            .link-tree-button {
+                font-size: 14px;
+                padding: 15px 15px; /* Adjusted padding for smaller screens */
+                width: 90%; /* Reduced width to 90% for spacing */
+                margin: 10px auto; /* Center buttons with margin */
+            }
+            .dropdown-button {
+                width: 90%; /* Ensure the dropdown button is the same width as others on mobile */
+            }
+            .bio {
+                padding: 0 15px; /* Add padding to the bio for mobile */
+                width: 90%; /* Bio width on mobile */
+                margin-bottom: 10px; /* Increased margin-bottom for spacing */
+            }
+            /* Adjust dropdown width on mobile */
+            .dropdown-content {
+                width: 90%; /* Set dropdown to be 90% of the screen width */
+                left: 50%; /* Center the dropdown */
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Desktop Specific */
+        @media (min-width: 768px) {
+            .bio {
+                margin-bottom: 10px; /* Increased margin-bottom on desktop */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Rotating Banner -->
+    <div class="banner">
+        <div class="slide-container">
+			<span>Welcome to our store</span>
+            <span>Free Shipping Site Wide!! 🚚💨</span>
+            <span>Use code 10OFF2025 for 10%OFF your First Entire Order</span>
+			<span>Check out our Instagram for the latest News and Drops!</span>
+			<span></span>
+        </div>
+</div>
+
+<div class="link-tree-container">
+    <!-- Profile Picture -->
+    <img src="/pfp2.png" alt="Profile Picture" class="link-tree-profile-pic" draggable="false">
+
+    <!-- Short Bio under the Profile Picture -->
+    <p class="bio">Hello! I'm a passionate creator, sharing my journey and products with you. Welcome to my page!</p>
+
+    <!-- Dropdown Button for Social Links -->
+    <div class="dropdown" id="social-links">
+        <button class="dropdown-button" onclick="toggleSocialLinks()">Social Links</button>
+        <div class="dropdown-content">
+            <a href="https://facebook.com" target="_blank">
+                <img src="/facebook.png" alt="Facebook Icon" class="icon"> Facebook
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="/instagram.png" alt="Instagram Icon" class="icon"> Instagram
+            </a>
+        </div>
+    </div>
+
+    <!-- Dropdown Button for Featured Items -->
+    <div class="dropdown" id="featured-items">
+        <button class="dropdown-button" onclick="toggleFeaturedItems()">Featured Items</button>
+        <div class="dropdown-content">
+            <a href="/featured/item1" target="_blank">
+                <img src="/shirt1.png" alt="Shirt 1 Icon" class="icon"> Featured Item 1
+            </a>
+            <a href="/featured/item2" target="_blank">
+                <img src="/shirt2.png" alt="Shirt 2 Icon" class="icon"> Featured Item 2
+            </a>
+            <a href="/featured/item3" target="_blank">
+                <img src="/shirt3.png" alt="Shirt 3 Icon" class="icon"> Featured Item 3
+            </a>
+            <a href="/featured/item4" target="_blank">
+                <img src="/shirt4.png" alt="Shirt 4 Icon" class="icon"> Featured Item 4
+            </a>
+        </div>
+    </div>
+
+    <!-- Container for Other Buttons -->
+    <div class="button-container" id="button-container">
+        <a href="https://shop.rubyreaper.com" class="link-tree-button" id="shop-all">Shop All</a>
+        <a href="/pages/about-us" class="link-tree-button">About Us</a>
+        <a href="https://rubyreaper.net/pages/contact" class="link-tree-button">Contact</a>
+        <a href="/blogs/news" class="link-tree-button">Blog</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <hr>
+    <p>Made with ❤️ by <a href="https://github.com/RubyEyedReaper/" target="_blank" style="color: #BA304C;">RubyReaper</a></p>
+    <p>&#174; Registered <a href="https://rubyreaper.com" target="_blank">rubyreaper.com</a></p>
+</div>
+
+<script>
+    function toggleSocialLinks() {
+        const dropdown = document.querySelector('#social-links');
+        const featuredItems = document.querySelector('#featured-items');
+
+        dropdown.classList.toggle('open');
+
+        if (dropdown.classList.contains('open')) {
+            featuredItems.style.marginTop = '170px';
+        } else {
+            featuredItems.style.marginTop = '0';
+        }
+    }
+
+    function toggleFeaturedItems() {
+        const dropdown = document.querySelector('#featured-items');
+        const shopAllButton = document.querySelector('#shop-all');
+
+        dropdown.classList.toggle('open');
+
+        if (dropdown.classList.contains('open')) {
+            shopAllButton.style.marginTop = '315px';
+        } else {
+            shopAllButton.style.removeProperty('margin-top');
+        }
+    }
+</script>
+</body>
+</html>
