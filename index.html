@@ -14,7 +14,7 @@
     <link rel="icon" href="/favicon.png" type="image/png">
     <title>Link Tree</title>
     <style>
-       /* Rotating Banner */
+        /* Rotating Banner */
         .banner {
             width: 100%;
             background-color: #ba304c;
@@ -50,38 +50,38 @@
             animation: fadeIn 15s infinite;
             white-space: nowrap;
         }
-/* Keyframes for fade-in and fade-out for each slide */
-@keyframes fadeSlide {
-    0%, 20% { opacity: 1; }  /* Fade in during the first 4 seconds */
-    25%, 100% { opacity: 0; }  /* Fade out after 4 seconds */
-}
 
-/* Apply the fadeSlide animation to each slide with proper delays */
-.slide-container span:nth-child(1) {
-    animation: fadeSlide 20s infinite;  /* Total cycle duration: 20s */
-    animation-delay: 0s;  /* Slide 1 starts at 0s */
-}
+        /* Keyframes for fade-in and fade-out for each slide */
+        @keyframes fadeSlide {
+            0%, 20% { opacity: 1; }  /* Fade in during the first 4 seconds */
+            25%, 100% { opacity: 0; }  /* Fade out after 4 seconds */
+        }
 
-.slide-container span:nth-child(2) {
-    animation: fadeSlide 20s infinite;
-    animation-delay: 5s;  /* Slide 2 starts at 5s */
-}
+        /* Apply the fadeSlide animation to each slide with proper delays */
+        .slide-container span:nth-child(1) {
+            animation: fadeSlide 20s infinite;  /* Total cycle duration: 20s */
+            animation-delay: 0s;  /* Slide 1 starts at 0s */
+        }
 
-.slide-container span:nth-child(3) {
-    animation: fadeSlide 20s infinite;
-    animation-delay: 10s;  /* Slide 3 starts at 10s */
-}
+        .slide-container span:nth-child(2) {
+            animation: fadeSlide 20s infinite;
+            animation-delay: 5s;  /* Slide 2 starts at 5s */
+        }
 
-.slide-container span:nth-child(4) {
-    animation: fadeSlide 20s infinite;
-    animation-delay: 15s;  /* Slide 4 starts at 15s */
-}
+        .slide-container span:nth-child(3) {
+            animation: fadeSlide 20s infinite;
+            animation-delay: 10s;  /* Slide 3 starts at 10s */
+        }
 
-.slide-container span:nth-child(5) {
-    animation: fadeSlide 20s infinite;
-    animation-delay: 20s;  /* Slide 5 starts at 20s */
-}
+        .slide-container span:nth-child(4) {
+            animation: fadeSlide 20s infinite;
+            animation-delay: 15s;  /* Slide 4 starts at 15s */
+        }
 
+        .slide-container span:nth-child(5) {
+            animation: fadeSlide 20s infinite;
+            animation-delay: 20s;  /* Slide 5 starts at 20s */
+        }
 
         /* Reset body margins and padding */
         body {
@@ -165,6 +165,12 @@
             box-shadow: 0px 4px 6px #231313;
         }
 
+        /* Hover Effect for Dropdown Buttons */
+        .dropdown-button:hover {
+            background-color: #9f2c3f; /* Same as button hover effect */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
         /* Dropdown Content */
         .dropdown-content {
             display: none;
@@ -195,8 +201,10 @@
             transition: background-color 0.3s ease;
         }
 
+        /* Hover Effect for Links inside Dropdown */
         .dropdown-content a:hover {
             background-color: #9f2c3f; /* Slightly darker color on hover */
+            transform: scale(1.05); /* Slight zoom effect */
         }
 
         /* Icon Styles */
@@ -310,95 +318,94 @@
     <!-- Rotating Banner -->
     <div class="banner">
         <div class="slide-container">
-			<span>Welcome to our store</span>
+            <span>Welcome to our store</span>
             <span>Free Shipping Site Wide!! 🚚💨</span>
             <span>Use code 10OFF2025 for 10%OFF your First Entire Order</span>
-			<span>Check out our Instagram for the latest News and Drops!</span>
-			<span></span>
-        </div>
-</div>
-
-<div class="link-tree-container">
-    <!-- Profile Picture -->
-    <img src="/pfp2.png" alt="Profile Picture" class="link-tree-profile-pic" draggable="false">
-
-    <!-- Short Bio under the Profile Picture -->
-    <p class="bio">Hello! I'm a passionate creator, sharing my journey and products with you. Welcome to my page!</p>
-
-    <!-- Dropdown Button for Social Links -->
-    <div class="dropdown" id="social-links">
-        <button class="dropdown-button" onclick="toggleSocialLinks()">Social Links</button>
-        <div class="dropdown-content">
-            <a href="https://facebook.com" target="_blank">
-                <img src="/facebook.png" alt="Facebook Icon" class="icon"> Facebook
-            </a>
-            <a href="https://instagram.com" target="_blank">
-                <img src="/instagram.png" alt="Instagram Icon" class="icon"> Instagram
-            </a>
+            <span>Check out our Instagram for the latest News and Drops!</span>
+            <span></span>
         </div>
     </div>
 
-    <!-- Dropdown Button for Featured Items -->
-    <div class="dropdown" id="featured-items">
-        <button class="dropdown-button" onclick="toggleFeaturedItems()">Featured Items</button>
-        <div class="dropdown-content">
-            <a href="/featured/item1" target="_blank">
-                <img src="/shirt1.png" alt="Shirt 1 Icon" class="icon"> Featured Item 1
-            </a>
-            <a href="/featured/item2" target="_blank">
-                <img src="/shirt2.png" alt="Shirt 2 Icon" class="icon"> Featured Item 2
-            </a>
-            <a href="/featured/item3" target="_blank">
-                <img src="/shirt3.png" alt="Shirt 3 Icon" class="icon"> Featured Item 3
-            </a>
-            <a href="/featured/item4" target="_blank">
-                <img src="/shirt4.png" alt="Shirt 4 Icon" class="icon"> Featured Item 4
-            </a>
+    <div class="link-tree-container">
+        <!-- Profile Picture -->
+        <img src="/pfp2.png" alt="Profile Picture" class="link-tree-profile-pic" draggable="false">
+
+        <!-- Short Bio under the Profile Picture -->
+        <p class="bio">Hello! I'm a passionate creator, sharing my journey and products with you. Welcome to my page!</p>
+
+        <!-- Dropdown Button for Social Links -->
+        <div class="dropdown" id="social-links">
+            <button class="dropdown-button" onclick="toggleSocialLinks()">Social Links</button>
+            <div class="dropdown-content">
+                <a href="https://facebook.com" target="_blank">
+                    <img src="/facebook.png" alt="Facebook Icon" class="icon"> Facebook
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <img src="/instagram.png" alt="Instagram Icon" class="icon"> Instagram
+                </a>
+            </div>
+        </div>
+
+        <!-- Dropdown Button for Featured Items -->
+        <div class="dropdown" id="featured-items">
+            <button class="dropdown-button" onclick="toggleFeaturedItems()">Featured Items</button>
+            <div class="dropdown-content">
+                <a href="/featured/item1" target="_blank">
+                    <img src="/shirt1.png" alt="Shirt 1 Icon" class="icon"> Featured Item 1
+                </a>
+                <a href="/featured/item2" target="_blank">
+                    <img src="/shirt2.png" alt="Shirt 2 Icon" class="icon"> Featured Item 2
+                </a>
+                <a href="/featured/item3" target="_blank">
+                    <img src="/shirt3.png" alt="Shirt 3 Icon" class="icon"> Featured Item 3
+                </a>
+                <a href="/featured/item4" target="_blank">
+                    <img src="/shirt4.png" alt="Shirt 4 Icon" class="icon"> Featured Item 4
+                </a>
+            </div>
+        </div>
+        <!-- Container for Other Buttons -->
+        <div class="button-container" id="button-container">
+            <a href="https://shop.rubyreaper.com" class="link-tree-button" id="shop-all">Shop All</a>
+            <a href="/pages/about-us" class="link-tree-button">About Us</a>
+            <a href="https://rubyreaper.net/pages/contact" class="link-tree-button">Contact</a>
+            <a href="/blogs/news" class="link-tree-button">Blog</a>
         </div>
     </div>
 
-    <!-- Container for Other Buttons -->
-    <div class="button-container" id="button-container">
-        <a href="https://shop.rubyreaper.com" class="link-tree-button" id="shop-all">Shop All</a>
-        <a href="/pages/about-us" class="link-tree-button">About Us</a>
-        <a href="https://rubyreaper.net/pages/contact" class="link-tree-button">Contact</a>
-        <a href="/blogs/news" class="link-tree-button">Blog</a>
+    <!-- Footer -->
+    <div class="footer">
+        <hr>
+        <p>Made with ❤️ by <a href="https://github.com/RubyEyedReaper/" target="_blank" style="color: #BA304C;">RubyReaper</a></p>
+        <p>&#174; Registered <a href="https://rubyreaper.com" target="_blank">rubyreaper.com</a></p>
     </div>
-</div>
 
-<!-- Footer -->
-<div class="footer">
-    <hr>
-    <p>Made with ❤️ by <a href="https://github.com/RubyEyedReaper/" target="_blank" style="color: #BA304C;">RubyReaper</a></p>
-    <p>&#174; Registered <a href="https://rubyreaper.com" target="_blank">rubyreaper.com</a></p>
-</div>
+    <script>
+        function toggleSocialLinks() {
+            const dropdown = document.querySelector('#social-links');
+            const featuredItems = document.querySelector('#featured-items');
 
-<script>
-    function toggleSocialLinks() {
-        const dropdown = document.querySelector('#social-links');
-        const featuredItems = document.querySelector('#featured-items');
+            dropdown.classList.toggle('open');
 
-        dropdown.classList.toggle('open');
-
-        if (dropdown.classList.contains('open')) {
-            featuredItems.style.marginTop = '170px';
-        } else {
-            featuredItems.style.marginTop = '0';
+            if (dropdown.classList.contains('open')) {
+                featuredItems.style.marginTop = '170px';
+            } else {
+                featuredItems.style.marginTop = '0';
+            }
         }
-    }
 
-    function toggleFeaturedItems() {
-        const dropdown = document.querySelector('#featured-items');
-        const shopAllButton = document.querySelector('#shop-all');
+        function toggleFeaturedItems() {
+            const dropdown = document.querySelector('#featured-items');
+            const shopAllButton = document.querySelector('#shop-all');
 
-        dropdown.classList.toggle('open');
+            dropdown.classList.toggle('open');
 
-        if (dropdown.classList.contains('open')) {
-            shopAllButton.style.marginTop = '315px';
-        } else {
-            shopAllButton.style.removeProperty('margin-top');
+            if (dropdown.classList.contains('open')) {
+                shopAllButton.style.marginTop = '315px';
+            } else {
+                shopAllButton.style.removeProperty('margin-top');
+            }
         }
-    }
-</script>
+    </script>
 </body>
 </html>
